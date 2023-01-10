@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2018 at 09:15 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 7.0.6
+-- Generation Time: Jan 09, 2023 at 08:54 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -31,7 +32,7 @@ CREATE TABLE `school` (
   `name` varchar(50) NOT NULL,
   `address` varchar(150) NOT NULL,
   `contact` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `school`
@@ -54,7 +55,7 @@ CREATE TABLE `student` (
   `contact` varchar(41) NOT NULL,
   `school_id` int(11) NOT NULL,
   `address` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `student`
@@ -78,17 +79,25 @@ CREATE TABLE `teacher` (
   `id` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
   `contact` varchar(60) NOT NULL,
+  `location_home_town` varchar(500) NOT NULL,
   `address` varchar(50) NOT NULL,
   `school_id` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`id`, `name`, `contact`, `address`, `school_id`) VALUES
-(4, 'Ahe', '03055466154', 'asdf', 'City Scholl'),
-(7, 'LAeeq Khan Niazi', 'adsf', '03055466154', 'Sprit');
+INSERT INTO `teacher` (`id`, `name`, `contact`, `location_home_town`, `address`, `school_id`) VALUES
+(4, 'Ahe', '03055466154', '', 'asdf', 'City Scholl'),
+(7, 'LAeeq Khan Niazi', 'adsf', '', '03055466154', 'Sprit'),
+(8, 'wajeeha', '202', '', '234234', 'Sprit'),
+(9, 'NABEEL', '202 a BLOCK', '', '1231232', 'LLLLL'),
+(10, 'NABEEL', '202', 'Pakistan', 'qe34234', 'LLLLL'),
+(11, 'NABEEL', '03064452393', 'Aus', '202', 'LLLLL'),
+(12, 'NABEEL', '03064452393', 'Aus', '202', 'LLLLL'),
+(13, 'ali', '1223', 'India', '205', 'll'),
+(14, '2423', '202 a BLOCK', 'xyz', '12343214', 'Sprit');
 
 --
 -- Indexes for dumped tables
@@ -121,11 +130,14 @@ ALTER TABLE `teacher`
 --
 ALTER TABLE `school`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
